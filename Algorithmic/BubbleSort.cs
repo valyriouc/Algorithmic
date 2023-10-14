@@ -28,13 +28,13 @@ namespace Algorithmic
                     if (Bubbles[i] > Bubbles[i + 1])
                     {
                         int tmp = Bubbles[i + 1];
+                        Bubbles[i+1] = Bubbles[i];
                         Bubbles[i] = tmp;
-                        Bubbles[i + 1] = Bubbles[i];
 
                         Sorted = false;
 
                         Print();
-                        Thread.Sleep(1000);
+                        Thread.Sleep(500);
                     }
                 }
             }
@@ -49,9 +49,15 @@ namespace Algorithmic
                 string bubRepres = string.Empty;
                 for (int i = 0; i < bubble; i++)
                 {
+                    if (i == 100)
+                    {
+                        break;
+                    }
+
                     bubRepres += '#';
                 }
 
+                bubRepres += $" [{bubble}]";
                 Console.WriteLine(bubRepres);
             }
         }
