@@ -40,6 +40,8 @@ namespace Algorithmic
                 bubRepres += $" [{bubble}]";
                 Console.WriteLine(bubRepres);
             }
+
+            Thread.Sleep(500);
         }
     }
 }
