@@ -1,64 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Algorithmic
+﻿namespace Algorithmic
 {
-    internal class BubbleSort
+    internal class BubbleSort : Sort
     {
-        public bool Sorted { get; set; } 
+        public BubbleSort(List<int> bubbles) : base(bubbles) { }
 
-        public List<int> Bubbles { get; }
-
-        public BubbleSort(List<int> bubbles)
+        public override void Sorting()
         {
-            Bubbles = bubbles;
-            Sorted = false;
-        }
-
-        public void Sort()
-        {
-            while(!Sorted)
+            while (!base.IsSorted)
             {
-                Sorted = true;
+                IsSorted = true;
                 for (int i = 0; i < Bubbles.Count - 1; i++)
                 {
                     if (Bubbles[i] > Bubbles[i + 1])
                     {
                         int tmp = Bubbles[i + 1];
-                        Bubbles[i+1] = Bubbles[i];
+                        Bubbles[i + 1] = Bubbles[i];
                         Bubbles[i] = tmp;
 
-                        Sorted = false;
+                        IsSorted = false;
 
                         Print();
                         Thread.Sleep(500);
                     }
                 }
-            }
-        }
-
-        public void Print()
-        {
-            Console.Clear();
-
-            foreach (int bubble in Bubbles)
-            {
-                string bubRepres = string.Empty;
-                for (int i = 0; i < bubble; i++)
-                {
-                    if (i == 100)
-                    {
-                        break;
-                    }
-
-                    bubRepres += '#';
-                }
-
-                bubRepres += $" [{bubble}]";
-                Console.WriteLine(bubRepres);
             }
         }
     }
